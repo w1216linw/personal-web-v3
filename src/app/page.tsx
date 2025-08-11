@@ -1,5 +1,6 @@
 "use client";
 
+import { heroData } from "@/data";
 import {
   createFadeIn,
   DISTANCE,
@@ -31,13 +32,13 @@ export default function Home() {
           initial="hidden"
           animate="visible"
         >
-          {["Welcome", "to", "My", "Portfolio"].map((word, index) => {
+          {heroData.title.split(" ").map((word, index) => {
             return (
               <motion.span
-                key={index}
+                key={index + 100}
                 className="inline-block mr-4"
                 variants={createFadeIn(
-                  TIMING.fast * index,
+                  TIMING.fast * (index + 4),
                   TIMING.slow,
                   DISTANCE.medium
                 )}
@@ -55,7 +56,7 @@ export default function Home() {
           initial="hidden"
           animate="visible"
         >
-          I&rsquo;m a passionate developer creating amazing digital experiences
+          {heroData.description}
         </motion.p>
 
         <motion.nav
@@ -67,20 +68,20 @@ export default function Home() {
           role="navigation"
         >
           <motion.a
-            href="/projects"
+            href={heroData.ctaButtons.primary.href}
             className="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
             whileHover={hover.scale}
             whileTap={tap.scale}
           >
-            View My Work
+            {heroData.ctaButtons.primary.text}
           </motion.a>
           <motion.a
-            href="/contact"
+            href={heroData.ctaButtons.secondary.href}
             className="border border-secondary text-secondary px-8 py-3 rounded-lg font-medium hover:bg-secondary hover:text-white transition-colors"
             whileHover={hover.scale}
             whileTap={tap.scale}
           >
-            Get In Touch
+            {heroData.ctaButtons.secondary.text}
           </motion.a>
         </motion.nav>
       </motion.div>
