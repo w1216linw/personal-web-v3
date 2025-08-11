@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { fadeInDown } from "@/lib/animations";
 
 const Header = () => {
   const pathname = usePathname();
@@ -21,7 +22,12 @@ const Header = () => {
   const indicatorOffset = (100 - indicatorWidth) / 2; // Center the smaller indicator
 
   return (
-    <header className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-2xs sm:max-w-xs md:max-w-lg lg:max-w-2xl mx-auto mt-2 sm:mt-4 px-2 sm:px-0">
+    <motion.header 
+      className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-2xs sm:max-w-xs md:max-w-lg lg:max-w-2xl mx-auto mt-2 sm:mt-4 px-2 sm:px-0"
+      variants={fadeInDown}
+      initial="hidden"
+      animate="visible"
+    >
       <nav className="bg-surface/80 backdrop-blur-md rounded-full shadow-lg border border-border/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3">
         <div className="flex justify-between items-center relative">
           {navItems.map((item, index) => {
@@ -85,7 +91,7 @@ const Header = () => {
           )}
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 
