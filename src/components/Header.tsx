@@ -27,8 +27,13 @@ const Header = () => {
       variants={fadeInDown}
       initial="hidden"
       animate="visible"
+      role="banner"
     >
-      <nav className="bg-surface/80 backdrop-blur-md rounded-full shadow-lg border border-border/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3">
+      <nav 
+        className="bg-surface/80 backdrop-blur-md rounded-full shadow-lg border border-border/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className="flex justify-between items-center relative">
           {navItems.map((item, index) => {
             const isActive = pathname === item.href;
@@ -41,6 +46,8 @@ const Header = () => {
                 className="relative z-10 px-2 sm:px-3 md:px-4 py-2 text-sm sm:text-base md:text-lg font-medium transition-colors flex-1 text-center"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
+                aria-current={isActive ? "page" : undefined}
+                aria-label={`Navigate to ${item.name} page`}
               >
                 <span
                   className={`relative z-10 transition-colors duration-200 ${
@@ -69,6 +76,7 @@ const Header = () => {
                 damping: 30,
               }}
               layoutId="activeIndicator"
+              aria-hidden="true"
             />
           )}
           {hoveredIndex !== null && hoveredIndex !== currentIndex && (
@@ -87,6 +95,7 @@ const Header = () => {
                 stiffness: 400,
                 damping: 25,
               }}
+              aria-hidden="true"
             />
           )}
         </div>

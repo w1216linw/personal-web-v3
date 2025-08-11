@@ -12,7 +12,12 @@ import { motion } from "motion/react";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-16">
+    <section
+      className="container mx-auto px-4 py-16"
+      aria-labelledby="hero-heading"
+      aria-describedby="hero-desc"
+      role="banner"
+    >
       <motion.div
         variants={createFadeIn(0, TIMING.slow, DISTANCE.medium)}
         initial="hidden"
@@ -20,6 +25,7 @@ export default function Home() {
         className="max-w-4xl mx-auto text-center"
       >
         <motion.h1
+          id="hero-heading"
           className="text-5xl md:text-7xl font-bold text-text-primary mb-6"
           variants={staggerContainer}
           initial="hidden"
@@ -43,19 +49,22 @@ export default function Home() {
         </motion.h1>
 
         <motion.p
+          id="hero-desc"
           className="text-xl md:text-2xl text-text-secondary mb-8 max-w-2xl mx-auto"
           variants={createFadeIn(TIMING.normal, TIMING.slow, DISTANCE.medium)}
           initial="hidden"
           animate="visible"
         >
-          I'm a passionate developer creating amazing digital experiences
+          I&rsquo;m a passionate developer creating amazing digital experiences
         </motion.p>
 
-        <motion.div
+        <motion.nav
           className="flex flex-col sm:flex-row gap-4 justify-center"
           variants={createFadeIn(TIMING.slow, TIMING.slow, DISTANCE.medium)}
           initial="hidden"
           animate="visible"
+          aria-label="Quick access actions"
+          role="navigation"
         >
           <motion.a
             href="/projects"
@@ -73,8 +82,8 @@ export default function Home() {
           >
             Get In Touch
           </motion.a>
-        </motion.div>
+        </motion.nav>
       </motion.div>
-    </div>
+    </section>
   );
 }
