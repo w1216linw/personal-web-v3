@@ -1,6 +1,8 @@
 export interface HeroData {
+  greeting: string;
   title: string;
   description: string;
+  highlights: string;
   ctaButtons: {
     primary: {
       text: string;
@@ -14,9 +16,11 @@ export interface HeroData {
 }
 
 export const heroData: HeroData = {
-  title: "Hi I am Weiwei Lin,",
+  greeting: "Hi,",
+  title: "I am Weiwei Lin",
+  highlights: "Frontend Engineer",
   description:
-    "A Frontend engineer passionate about learning and committed to continually improving my knowledge.",
+    "A Frontend Engineer passionate about learning and committed to continually improving my knowledge.",
   ctaButtons: {
     primary: {
       text: "View Projects",

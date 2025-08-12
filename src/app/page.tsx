@@ -14,7 +14,7 @@ import { motion } from "motion/react";
 export default function Home() {
   return (
     <section
-      className="container mx-auto px-4 py-16"
+      className="min-h-screen flex items-center justify-center px-4 -mt-20"
       aria-labelledby="hero-heading"
       aria-describedby="hero-desc"
       role="banner"
@@ -23,22 +23,32 @@ export default function Home() {
         variants={createFadeIn(0, TIMING.slow, DISTANCE.medium)}
         initial="hidden"
         animate="visible"
-        className="max-w-4xl mx-auto text-center"
+        className="max-w-4xl text-center"
       >
         <motion.h1
           id="hero-heading"
-          className="text-5xl md:text-7xl font-bold text-text-primary mb-6"
+          className="text-hero font-bold text-text-primary mb-6"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
         >
+          <motion.span
+            variants={createFadeIn(
+              TIMING.fast * 4,
+              TIMING.slow,
+              DISTANCE.medium
+            )}
+            className="inline-block mr-3 sm:mr-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-extrabold text-hero-accent drop-shadow-lg"
+          >
+            {heroData.greeting}
+          </motion.span>
           {heroData.title.split(" ").map((word, index) => {
             return (
               <motion.span
                 key={index + 100}
-                className="inline-block mr-4"
+                className="inline-block mr-3 sm:mr-4"
                 variants={createFadeIn(
-                  TIMING.fast * (index + 4),
+                  TIMING.fast * (index + 5),
                   TIMING.slow,
                   DISTANCE.medium
                 )}
@@ -51,16 +61,32 @@ export default function Home() {
 
         <motion.p
           id="hero-desc"
-          className="text-xl md:text-2xl text-text-secondary mb-8 max-w-2xl mx-auto"
+          className="text-body mb-8 max-w-2xl mx-auto"
           variants={createFadeIn(TIMING.normal, TIMING.slow, DISTANCE.medium)}
           initial="hidden"
           animate="visible"
         >
-          {heroData.description}
+          {heroData.description
+            .split(new RegExp(`(${heroData.highlights})`, "gi"))
+            .map((word, index) => {
+              return word.toLowerCase() ===
+                heroData.highlights.toLowerCase() ? (
+                <span
+                  className="text-secondary font-semibold bg-secondary/10 px-3 py-1 rounded-full text-subtitle"
+                  key={index}
+                >
+                  {word}
+                </span>
+              ) : (
+                <span className="text-text-secondary" key={index}>
+                  {word}
+                </span>
+              );
+            })}
         </motion.p>
 
         <motion.nav
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
           variants={createFadeIn(TIMING.slow, TIMING.slow, DISTANCE.medium)}
           initial="hidden"
           animate="visible"
@@ -69,7 +95,7 @@ export default function Home() {
         >
           <motion.a
             href={heroData.ctaButtons.primary.href}
-            className="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+            className="bg-primary text-white px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-center"
             whileHover={hover.scale}
             whileTap={tap.scale}
           >
@@ -77,7 +103,7 @@ export default function Home() {
           </motion.a>
           <motion.a
             href={heroData.ctaButtons.secondary.href}
-            className="border border-secondary text-secondary px-8 py-3 rounded-lg font-medium hover:bg-secondary hover:text-white transition-colors"
+            className="border border-secondary text-secondary px-6 sm:px-8 py-3 rounded-lg font-medium hover:bg-secondary hover:text-white transition-colors text-center"
             whileHover={hover.scale}
             whileTap={tap.scale}
           >

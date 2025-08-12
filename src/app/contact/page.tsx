@@ -36,7 +36,7 @@ export default function Contact() {
         className="max-w-4xl mx-auto"
       >
         <motion.h1
-          className="text-4xl md:text-6xl font-bold text-text-primary mb-8 text-center"
+          className="text-heading font-bold text-text-primary mb-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -45,7 +45,7 @@ export default function Contact() {
         </motion.h1>
 
         <motion.p
-          className="text-xl text-text-secondary text-center mb-16 max-w-3xl mx-auto"
+          className="text-section text-text-secondary text-center mb-16 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -59,7 +59,7 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-2xl font-semibold text-text-primary mb-6">
+            <h2 className="text-subsection font-semibold text-text-primary mb-6">
               Contact Information
             </h2>
 
@@ -96,7 +96,7 @@ export default function Contact() {
             </div>
 
             <div className="mt-8">
-              <h3 className="text-lg font-semibold text-text-primary mb-4">
+              <h3 className="text-body font-semibold text-text-primary mb-4">
                 Follow Me
               </h3>
               <div className="flex space-x-4">
@@ -139,7 +139,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-text-primary mb-2"
+                  className="block text-small font-medium text-text-primary mb-2"
                 >
                   Name
                 </label>
@@ -157,7 +157,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-text-primary mb-2"
+                  className="block text-small font-medium text-text-primary mb-2"
                 >
                   Email
                 </label>
@@ -175,7 +175,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-text-primary mb-2"
+                  className="block text-small font-medium text-text-primary mb-2"
                 >
                   Message
                 </label>

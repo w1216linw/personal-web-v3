@@ -1,10 +1,10 @@
 "use client";
 
+import { fadeInDown } from "@/lib/animations";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { fadeInDown } from "@/lib/animations";
 
 const Header = () => {
   const pathname = usePathname();
@@ -22,14 +22,14 @@ const Header = () => {
   const indicatorOffset = (100 - indicatorWidth) / 2; // Center the smaller indicator
 
   return (
-    <motion.header 
+    <motion.header
       className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-2xs sm:max-w-xs md:max-w-lg lg:max-w-2xl mx-auto mt-2 sm:mt-4 px-2 sm:px-0"
       variants={fadeInDown}
       initial="hidden"
       animate="visible"
       role="banner"
     >
-      <nav 
+      <nav
         className="bg-surface/80 backdrop-blur-md rounded-full shadow-lg border border-border/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3"
         role="navigation"
         aria-label="Main navigation"
@@ -43,7 +43,7 @@ const Header = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative z-10 px-2 sm:px-3 md:px-4 py-2 text-sm sm:text-base md:text-lg font-medium transition-colors flex-1 text-center"
+                className="relative z-10 px-2 sm:px-3 md:px-4 py-2 text-body font-medium transition-colors flex-1 text-center"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 aria-current={isActive ? "page" : undefined}

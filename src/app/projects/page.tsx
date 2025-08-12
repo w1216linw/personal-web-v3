@@ -14,7 +14,7 @@ export default function Projects() {
         className="max-w-6xl mx-auto"
       >
         <motion.h1
-          className="text-4xl md:text-6xl font-bold text-text-primary mb-8 text-center"
+          className="text-heading font-bold text-text-primary mb-8 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -23,7 +23,7 @@ export default function Projects() {
         </motion.h1>
 
         <motion.p
-          className="text-xl text-text-secondary text-center mb-16 max-w-3xl mx-auto"
+          className="text-section text-text-secondary text-center mb-16 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -47,7 +47,7 @@ export default function Projects() {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-text-primary mb-2">
+                <h3 className="text-section font-semibold text-text-primary mb-2">
                   {project.title}
                 </h3>
                 <p className="text-text-secondary mb-4">
@@ -58,7 +58,7 @@ export default function Projects() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-primary/10 text-primary px-2 py-1 rounded text-sm font-medium"
+                      className="bg-primary/10 text-primary px-2 py-1 rounded text-small font-medium"
                     >
                       {tech}
                     </span>

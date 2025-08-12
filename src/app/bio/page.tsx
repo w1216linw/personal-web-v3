@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 
 export default function Bio() {
   return (
     <div className="container mx-auto px-4 py-16">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="max-w-4xl mx-auto"
       >
-        <motion.h1 
-          className="text-4xl md:text-6xl font-bold text-gray-900 mb-8"
+        <motion.h1
+          className="text-heading font-bold text-gray-900 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -37,29 +37,44 @@ export default function Bio() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="space-y-6"
           >
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Hello! I'm a passionate developer with a love for creating innovative digital solutions. 
-              With years of experience in web development, I specialize in modern technologies 
-              and enjoy bringing ideas to life through code.
+            <p className="text-body text-gray-600 leading-relaxed">
+              Hello! I'm a passionate developer with a love for creating
+              innovative digital solutions. With years of experience in web
+              development, I specialize in modern technologies and enjoy
+              bringing ideas to life through code.
             </p>
-            
-            <p className="text-lg text-gray-600 leading-relaxed">
-              When I'm not coding, you can find me exploring new technologies, contributing to 
-              open source projects, or enjoying the great outdoors. I believe in continuous 
-              learning and staying up-to-date with the latest industry trends.
+
+            <p className="text-body text-gray-600 leading-relaxed">
+              When I'm not coding, you can find me exploring new technologies,
+              contributing to open source projects, or enjoying the great
+              outdoors. I believe in continuous learning and staying up-to-date
+              with the latest industry trends.
             </p>
 
             <div className="pt-4">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Skills & Technologies</h3>
+              <h3 className="text-section font-semibold text-gray-900 mb-4">
+                Skills & Technologies
+              </h3>
               <div className="flex flex-wrap gap-3">
-                {['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Python', 'Tailwind CSS'].map((skill) => (
+                {[
+                  "JavaScript",
+                  "TypeScript",
+                  "React",
+                  "Next.js",
+                  "Node.js",
+                  "Python",
+                  "Tailwind CSS",
+                ].map((skill) => (
                   <motion.span
                     key={skill}
-                    className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                    className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-small font-medium"
                     whileHover={{ scale: 1.05 }}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3, delay: 0.8 + Math.random() * 0.3 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: 0.8 + Math.random() * 0.3,
+                    }}
                   >
                     {skill}
                   </motion.span>
