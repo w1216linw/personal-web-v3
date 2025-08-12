@@ -6,13 +6,13 @@
   --foreground: #3d405b;
   --primary: #e07a5f;
   --secondary: #81b29a;
-  --accent: #f2cc8f;
+  --accent: #d4962a;
   --surface: #ffffff;
   --surface-secondary: #f9f8f3;
   --border: #e6e3d4;
   --text-primary: #3d405b;
   --text-secondary: #5d5f70;
-  --text-muted: #8a8d9e;
+  --text-muted: #6b6e80;
 }
 
 .dark {
@@ -27,7 +27,7 @@
   --border: #5d5f70;
   --text-primary: #f4f1de;
   --text-secondary: #e6e3d4;
-  --text-muted: #a8abbd;
+  --text-muted: #b8bdd1;
 }
 
 @theme {
