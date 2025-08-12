@@ -63,7 +63,7 @@ const ThemeToggle = () => {
   }
 
   return (
-    <div className="fixed right-2 top-4">
+    <div className="fixed right-2 top-3 sm:top-5">
       <motion.button
         onClick={toggleTheme}
         className={`cursor-pointer w-12 h-12 rounded-full relative overflow-hidden shadow-lg transition-all duration-300 ${

@@ -4,11 +4,22 @@ import { fadeInDown } from "@/lib/animations";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const pathname = usePathname();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = 50; // Distance to scroll before background appears
+      setIsScrolled(window.scrollY > scrollThreshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -29,10 +40,18 @@ const Header = () => {
       animate="visible"
       role="banner"
     >
-      <nav
-        className="bg-surface/80 backdrop-blur-md rounded-full shadow-lg border border-border/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3"
+      <motion.nav
+        className="rounded-full shadow-lg border border-border/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3"
         role="navigation"
         aria-label="Main navigation"
+        animate={{
+          backgroundColor: isScrolled ? "rgb(var(--color-surface) / 0.8)" : "transparent",
+          backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+        }}
       >
         <div className="flex justify-between items-center relative">
           {navItems.map((item, index) => {
@@ -99,7 +118,7 @@ const Header = () => {
             />
           )}
         </div>
-      </nav>
+      </motion.nav>
     </motion.header>
   );
 };
