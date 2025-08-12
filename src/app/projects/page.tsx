@@ -28,7 +28,7 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Here are some of the projects I've worked on. Each one represents a
+          Here are some of the projects I&apos;ve worked on. Each one represents a
           unique challenge and learning experience in my development journey.
         </motion.p>
 

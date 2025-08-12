@@ -24,10 +24,6 @@ export const bioData: BioData = {
       ],
     },
     {
-      category: "Backend",
-      items: ["Node.js", "Python", "Express.js", "REST APIs", "GraphQL"],
-    },
-    {
       category: "Database",
       items: ["PostgreSQL", "MongoDB", "Redis", "Prisma"],
     },

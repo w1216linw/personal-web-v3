@@ -4,7 +4,7 @@ import { fadeInDown } from "@/lib/animations";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const pathname = usePathname();
@@ -41,12 +41,18 @@ const Header = () => {
       role="banner"
     >
       <motion.nav
-        className="rounded-full shadow-lg border border-border/50 px-2 sm:px-4 md:px-6 py-2 sm:py-3"
+        className="rounded-full border px-2 sm:px-4 md:px-6 py-2 sm:py-3"
         role="navigation"
         aria-label="Main navigation"
         animate={{
-          backgroundColor: isScrolled ? "rgb(var(--color-surface) / 0.8)" : "transparent",
+          backgroundColor: isScrolled
+            ? "rgb(var(--color-surface) / 0.8)"
+            : "transparent",
           backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
+          borderColor: isScrolled ? "var(--border)" : "transparent",
+          boxShadow: isScrolled
+            ? "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+            : "0 0 0 rgba(0,0,0,0)",
         }}
         transition={{
           duration: 0.3,
