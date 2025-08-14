@@ -39,7 +39,7 @@ export const projects: Project[] = [
     title: "Weight Training Recorder",
     description:
       "This project is a weight training recorder designed to track my daily workouts. Built with Next.js, TypeScript, Tailwind, and Firebase, it includes features such as a calendar view that highlights workout days, allowing users to easily track their consistency. Additionally, the app provides a graph to visually represent progress on specific exercises.",
-    technologies: ["React", "Tailwind", "NextJs", "Firebase"],
+    technologies: ["React", "Tailwind CSS", "Next.js", "Firebase"],
     status: "completed",
     links: {
       github: "https://github.com/w1216linw/Weight-Training-Recorder",
@@ -54,7 +54,7 @@ export const projects: Project[] = [
       github: "https://github.com/w1216linw/fem-task-management",
       live: "https://wei-kanban.netlify.app/",
     },
-    technologies: ["React", "Tailwind"],
+    technologies: ["React", "Tailwind CSS"],
     description:
       "This project is a Kanban board developed as a challenge from Frontend Mentor, where I implemented the provided design into a fully functional web app using React and Tailwind CSS. Users can set up boards with columns for task states and add tasks with details like titles, descriptions, and optional subtasks.",
     featured: false,

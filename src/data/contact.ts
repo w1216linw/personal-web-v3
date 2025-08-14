@@ -2,6 +2,7 @@ export interface ContactData {
   title: string;
   subtitle: string;
   email: string;
+  location: string;
   socialLinks: {
     name: string;
     url: string;
@@ -16,6 +17,7 @@ export const contactData: ContactData = {
   subtitle:
     "I'm always interested in hearing about new opportunities and interesting projects.",
   email: "w1216lin@gmail.com",
+  location: "Chicago, IL",
   socialLinks: [
     {
       name: "GitHub",

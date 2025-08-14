@@ -8,8 +8,15 @@ export interface BioData {
 }
 
 export const bioData: BioData = {
-  introduction:
-    "I'm a passionate full-stack developer with a love for creating beautiful, functional, and accessible web applications. I enjoy working with modern technologies and am always eager to learn new things.",
+  introduction: `I am a frontend engineer with a Bachelor's degree in Computer
+              Science from Northern Illinois University. After completing my
+              degree, I developed a strong passion for frontend development and
+              currently focus on JavaScript, utilizing the React library to
+              build various projects. I am also exploring Next.js and developing
+              an app with it. Additionally, I am learning Python for backend
+              development and have completed Google's UX design certificate
+              courses to enhance my ability to deliver exceptional user
+              experiences.`,
   skills: [
     {
       category: "Frontend",
@@ -24,19 +31,9 @@ export const bioData: BioData = {
       ],
     },
     {
-      category: "Database",
-      items: ["PostgreSQL", "MongoDB", "Redis", "Prisma"],
-    },
-    {
       category: "Tools & Others",
-      items: ["Git", "Docker", "AWS", "Vercel", "Jest", "Cypress"],
+      items: ["Vercel", "Figma", "Github"],
     },
   ],
-  interests: [
-    "Web Development",
-    "Open Source",
-    "AI/ML",
-    "Photography",
-    "Music",
-  ],
+  interests: ["Web Development", "Badminton", "Weight Training"],
 };

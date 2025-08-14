@@ -40,11 +40,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   );
 
   return (
-    <motion.div
+    <motion.article
       ref={ref}
       className={`grid lg:grid-cols-2 gap-12 items-center ${
         isEven ? "" : "lg:grid-flow-col-dense"
       }`}
+      role="article"
+      aria-labelledby={`project-title-${project.id}`}
     >
       {/* Image Section */}
       <motion.div
@@ -52,6 +54,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         variants={imageVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
+        aria-label={`Visual preview of ${project.title}`}
       >
         <ImageStack project={project} />
       </motion.div>
@@ -65,6 +68,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       >
         <div>
           <motion.h3
+            id={`project-title-${project.id}`}
             className="text-subsection font-bold text-text-primary mb-4"
             whileHover={hover.scale}
           >
@@ -78,35 +82,36 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </motion.p>
 
           {/* Technology Stack */}
-          <div className="mb-8">
-            <h4 className="text-section font-semibold text-text-primary mb-3">
+          <section className="mb-8" aria-labelledby={`tech-heading-${project.id}`}>
+            <h4 id={`tech-heading-${project.id}`} className="text-section font-semibold text-text-primary mb-3">
               Technologies
             </h4>
-            <div className="flex flex-wrap gap-3">
+            <ul className="flex flex-wrap gap-3" aria-label="Technologies used">
               {project.technologies.map((tech: string, techIndex: number) => (
-                <motion.span
-                  key={tech}
-                  className="bg-primary/10 text-primary px-4 py-2 rounded-lg text-body font-medium"
-                  whileHover={hover.scale}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, scale: 1 }
-                      : { opacity: 0, scale: 0.8 }
-                  }
-                  transition={{
-                    duration: TIMING.fast,
-                    delay: TIMING.fast + TIMING.fast * techIndex,
-                  }}
-                >
-                  {tech}
-                </motion.span>
+                <li key={tech}>
+                  <motion.span
+                    className="bg-primary/10 text-primary px-4 py-2 rounded-lg text-body font-medium"
+                    whileHover={hover.scale}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={
+                      isInView
+                        ? { opacity: 1, scale: 1 }
+                        : { opacity: 0, scale: 0.8 }
+                    }
+                    transition={{
+                      duration: TIMING.fast,
+                      delay: TIMING.fast + TIMING.fast * techIndex,
+                    }}
+                  >
+                    {tech}
+                  </motion.span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </section>
 
           {/* Action Links */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <nav className="flex flex-col sm:flex-row gap-4" aria-label="Project links">
             {project.links?.github && (
               <motion.a
                 href={project.links.github}
@@ -115,8 +120,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 whileTap={{ scale: 0.95 }}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`View ${project.title} source code on GitHub`}
               >
-                <ChevronRight className="w-4 h-4 mr-2" />
+                <ChevronRight className="w-4 h-4 mr-2" aria-hidden="true" />
                 View Code
               </motion.a>
             )}
@@ -129,14 +135,15 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 whileTap={{ scale: 0.95 }}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`View ${project.title} live demo`}
               >
-                <ExternalLink className="w-4 h-4 mr-2" />
+                <ExternalLink className="w-4 h-4 mr-2" aria-hidden="true" />
                 Live Demo
               </motion.a>
             )}
-          </div>
+          </nav>
         </div>
       </motion.div>
-    </motion.div>
+    </motion.article>
   );
 }

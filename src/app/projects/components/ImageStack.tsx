@@ -17,7 +17,19 @@ export function ImageStack({ project }: ImageStackProps) {
   };
 
   return (
-    <div className="relative h-80 lg:h-96" onClick={handleImageClick}>
+    <div
+      className="relative h-80 lg:h-96"
+      onClick={handleImageClick}
+      role="button"
+      tabIndex={0}
+      aria-label={`Click to toggle between preview images for ${project.title}`}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleImageClick();
+        }
+      }}
+    >
       {/* Image B (Bottom Right by default) */}
       <motion.div
         className="absolute rounded-lg shadow-lg overflow-hidden cursor-pointer top-12 left-12 right-0 bottom-0"
@@ -34,9 +46,14 @@ export function ImageStack({ project }: ImageStackProps) {
             "linear-gradient(135deg, rgb(var(--color-primary) / 0.2), rgb(var(--color-secondary) / 0.2))",
           pointerEvents: isImageOnTop ? "auto" : "none",
         }}
+        role="img"
+        aria-label="Application image B"
       >
         <div className="w-full h-full flex items-center justify-center border border-border bg-surface-secondary">
-          <span className="text-text-secondary font-medium text-center px-4">
+          <span
+            className="text-text-secondary font-medium text-center px-4"
+            aria-hidden="true"
+          >
             {project.title} - Image B
           </span>
         </div>
@@ -58,9 +75,14 @@ export function ImageStack({ project }: ImageStackProps) {
             "linear-gradient(135deg, rgb(var(--color-secondary) / 0.2), rgb(var(--color-accent) / 0.2))",
           pointerEvents: !isImageOnTop ? "auto" : "none",
         }}
+        role="img"
+        aria-label="Application image A"
       >
         <div className="w-full h-full flex items-center justify-center border border-border bg-surface">
-          <span className="text-text-secondary font-medium text-center px-4">
+          <span
+            className="text-text-secondary font-medium text-center px-4"
+            aria-hidden="true"
+          >
             {project.title} - Image A
           </span>
         </div>
