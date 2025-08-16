@@ -9,10 +9,7 @@ export interface Project {
     github?: string;
     live?: string;
   };
-  images?: {
-    thumbnail?: string;
-    screenshots?: string[];
-  };
+  images?: string[];
 }
 
 export const projects: Project[] = [
@@ -28,11 +25,12 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Framer Motion",
     ],
-    status: "in-progress",
+    status: "completed",
     featured: true,
     links: {
       github: "https://github.com/w1216linw/personal-web-v3",
     },
+    images: ["/images/pw1.png", "/images/pw2.png"],
   },
   {
     id: "wtr",
@@ -40,12 +38,13 @@ export const projects: Project[] = [
     description:
       "This project is a weight training recorder designed to track my daily workouts. Built with Next.js, TypeScript, Tailwind, and Firebase, it includes features such as a calendar view that highlights workout days, allowing users to easily track their consistency. Additionally, the app provides a graph to visually represent progress on specific exercises.",
     technologies: ["React", "Tailwind CSS", "Next.js", "Firebase"],
-    status: "completed",
+    status: "in-progress",
     links: {
       github: "https://github.com/w1216linw/Weight-Training-Recorder",
       live: "https://wtr.weidevs.com/",
     },
     featured: true,
+    images: ["/images/wtr1.png", "/images/wtr2.png"],
   },
   {
     id: "kanban",
@@ -59,6 +58,7 @@ export const projects: Project[] = [
       "This project is a Kanban board developed as a challenge from Frontend Mentor, where I implemented the provided design into a fully functional web app using React and Tailwind CSS. Users can set up boards with columns for task states and add tasks with details like titles, descriptions, and optional subtasks.",
     featured: false,
     status: "completed",
+    images: ["/images/kanban1.png", "/images/kanban2.png"],
   },
   // Add more projects here...
 ];
