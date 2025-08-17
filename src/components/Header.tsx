@@ -46,10 +46,10 @@ const Header = () => {
         aria-label="Main navigation"
         animate={{
           backgroundColor: isScrolled
-            ? "rgb(var(--color-surface) / 0.8)"
-            : "transparent",
+            ? "rgba(256,256,256,0.2)"
+            : "var(--background)",
           backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
-          borderColor: isScrolled ? "var(--border)" : "transparent",
+          borderColor: isScrolled ? "var(--border)" : "var(--background)",
           boxShadow: isScrolled
             ? "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)"
             : "0 0 0 rgba(0,0,0,0)",
@@ -68,7 +68,7 @@ const Header = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative z-10 px-2 sm:px-3 md:px-4 py-2 text-body font-medium transition-colors flex-1 text-center"
+                className="relative z-10 px-2 sm:px-3 md:px-4 py-2 text-body font-semibold transition-colors flex-1 text-center"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 aria-current={isActive ? "page" : undefined}

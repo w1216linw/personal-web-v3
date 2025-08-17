@@ -88,10 +88,7 @@ const ThemeToggle = () => {
             {theme === "light" ? (
               <motion.div
                 key="sun"
-                initial={{
-                  y: isAnimating ? 0 : -20,
-                  opacity: isAnimating ? 1 : 0,
-                }}
+                initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 20, opacity: 0 }}
                 transition={{

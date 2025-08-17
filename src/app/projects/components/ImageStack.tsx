@@ -57,8 +57,8 @@ export function ImageStack({ project }: ImageStackProps) {
               alt={`${project.title} screenshot 2`}
               fill
               className="object-fill"
-              loading="lazy"
               sizes="100vw"
+              priority
             />
           </ImageWrapper>
         )}
@@ -90,8 +90,8 @@ export function ImageStack({ project }: ImageStackProps) {
               alt={`${project.title} screenshot 1`}
               fill
               className="object-fill"
-              loading="lazy"
               sizes="100vw"
+              priority
             />
           </ImageWrapper>
         )}
